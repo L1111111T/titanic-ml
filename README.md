@@ -8,28 +8,17 @@
 
 # 项目概述
 
-泰坦尼克号（Titanic）于1912年沉没，共造成2224名乘客与船员中的1502人遇难。本项目基于乘客的人口统计信息与船票相关信息，构建机器学习二分类模型，对乘客是否生还进行预测。
-
-项目完整实现了数据探索分析（EDA）、特征工程（Feature Engineering）、数据预处理（Preprocessing）、模型训练与比较（Model Comparison）、超参数调优（Hyperparameter Tuning）的一整套机器学习流程。
-
-* **训练集**：891条数据 · 11个特征
-* **测试集**：418条数据
-* **目标变量**：`Survived`
-
-  * `0` = 未生还
-  * `1` = 生还
-* 整体生还率约为38%
+泰坦尼克号（Titanic）于1912年沉没，共造成2224名乘客与船员中的1502人遇难。本项目基于乘客的人口统计信息与船票相关信息，构建机器学习二分类模型，对乘客是否生还进行预测。项目完整实现了数据探索分析（EDA）、特征工程（Feature Engineering）、数据预处理（Preprocessing）、模型训练与比较（Model Comparison）、超参数调优（Hyperparameter Tuning）的一整套机器学习流程。
+* **训练集**：891条数据 · 11个特征； **测试集**：418条数据； **目标变量**：`Survived` (`0` = 未生还, `1` = 生还), 整体生还率约为38%
 
 ---
 
 # 项目流程
-
 ## 1. 数据读取与初步检查
 使用 `pandas` 读取 `train.csv` 与 `test.csv`，并对数据结构进行检查：
 * 使用 `df.info()` 查看数据类型与缺失值
 * 使用 `df.describe()` 查看统计信息
 * 识别主要缺失字段： `Age`, `Cabin`, `Embarked`
-
 ---
 
 ## 2. Exploratory Data Analysis（EDA）
@@ -43,10 +32,7 @@
 | 箱线图（Box Plot）   | 比较不同舱位与票价分布        |
 | 折线图（Line Chart） | 分析家庭人数与生还率关系       |
 | 热力图（Heatmap）    | 查看数值变量相关性          |
-
-### 关键发现
-* 女性乘客生还率显著高于男性；一等舱乘客生还率远高于三等舱；独自出行乘客生还率较低；较高票价通常对应更高生还概率
-
+**关键发现：** 女性乘客生还率显著高于男性；一等舱乘客生还率远高于三等舱；独自出行乘客生还率较低；较高票价通常对应更高生还概率。
 ---
 
 # 3. 特征工程（Feature Engineering）
@@ -56,14 +42,12 @@
 | `Title`      | 乘客称谓   |
 | `FamilySize` | 家庭人数   |
 | `IsAlone`    | 是否独自出行 |
-
 同时删除了 `Name` `Ticket` `Cabin` `PassengerId`等对模型帮助较小或缺失严重的字段。
 
 ---
 
 # 4. 数据预处理 Pipeline
 使用 `Pipeline` `ColumnTransformer`构建完整的数据预处理流程，防止测试集信息泄露（Data Leakage）。
-
 ## 数值变量处理
 ```python
 SimpleImputer(strategy='median')
