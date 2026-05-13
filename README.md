@@ -1,4 +1,4 @@
-# Titanic - 机器学习生存预测项目
+# Titanic - Machine Learning from Disaster
 
 > 二分类任务 · [Kaggle竞赛页面](https://www.kaggle.com/competitions/titanic)
 > 
