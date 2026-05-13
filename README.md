@@ -51,22 +51,6 @@
 
 # 3. 特征工程（Feature Engineering）
 基于原始字段构建了三个新的机器学习特征：
-```python
-def feature_engineering(df):
-
-    # 从姓名中提取称谓（Mr、Mrs、Miss等）
-    df['Title'] = df['Name'].str.extract(r' ([A-Za-z]+)\.', expand=False)
-
-    # 家庭人数
-    df['FamilySize'] = df['SibSp'] + df['Parch'] + 1
-
-    # 是否独自出行
-    df['IsAlone'] = (df['FamilySize'] == 1).astype(int)
-
-    return df
-```
-
-新增特征：
 | 特征           | 含义     |
 | ------------ | ------ |
 | `Title`      | 乘客称谓   |
@@ -85,13 +69,11 @@ def feature_engineering(df):
 SimpleImputer(strategy='median')
 → StandardScaler()
 ```
-
 ## 类别变量处理
 ```python
 SimpleImputer(strategy='most_frequent')
 → OneHotEncoder()
 ```
-
 ---
 
 # 5. 模型训练与比较
@@ -108,7 +90,6 @@ SimpleImputer(strategy='most_frequent')
 
 # GridSearchCV 超参数搜索
 ## Decision Tree
-
 ```python
 {
  'dt_clf__criterion': ['gini', 'entropy'],
@@ -118,7 +99,6 @@ SimpleImputer(strategy='most_frequent')
 ```
 
 ## Random Forest
-
 ```python
 {
  'rf_clf__n_estimators': [50, 100, 200],
@@ -128,7 +108,6 @@ SimpleImputer(strategy='most_frequent')
 ```
 
 ## Gradient Boosting
-
 ```python
 {
  'gb_clf__n_estimators': [100, 200],
@@ -140,14 +119,13 @@ SimpleImputer(strategy='most_frequent')
 ---
 
 # 模型结果
-
 | 模型                         | Accuracy |
 | -------------------------- | -------- |
-| Baseline (DummyClassifier) | ~0.616   |
-| Logistic Regression        | [填入]     |
-| Decision Tree              | [填入]     |
-| Random Forest              | [填入]     |
-| Gradient Boosting          | [填入]     |
+| Baseline (DummyClassifier) | 0.614525   |
+| Logistic Regression        | 0.854749     |
+| Decision Tree              | 0.832402     |
+| Random Forest              | 0.832402     |
+| Gradient Boosting          | 0.804469     |
 
 > 最终提交模型：Logistic Regression
 > Kaggle Public Score：0.77511
@@ -158,11 +136,11 @@ SimpleImputer(strategy='most_frequent')
 
 | 排名 | 特征   | 含义   |
 | -- | ---- | ---- |
-| 1  | [填入] | [填入] |
-| 2  | [填入] | [填入] |
-| 3  | [填入] | [填入] |
-| 4  | [填入] | [填入] |
-| 5  | [填入] | [填入] |
+| 1  | Sex_male | 0.170968 |
+| 2  | Title_Mr | 0.167841 |
+| 3  | Sex_female | 0.132650 |
+| 4  | Fare | 0.107562 |
+| 5  | Pclass | 0.100744 |
 
 ---
 
