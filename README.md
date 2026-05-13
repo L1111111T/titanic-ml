@@ -162,12 +162,6 @@ SimpleImputer(strategy='most_frequent')
 ---
 
 # 技术栈
-
-```text
-Python 3.12
-pandas
-NumPy
-scikit-learn
-Matplotlib
-seaborn
-```
+`Python 3.12` · `pandas` · `NumPy` · `scikit-learn` · `Matplotlib`
+**核心方法：** Exploratory Data Analysis (EDA) · Feature Engineering · Pipeline · ColumnTransformer · GridSearchCV · Cross-Validation · Feature Importance Analysis
+**算法：** DummyClassifier (Baseline) · Logistic Regression · Decision Tree · Random Forest (Bagging Ensemble) · Gradient Boosting (Boosting Ensemble)
