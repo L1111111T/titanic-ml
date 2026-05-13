@@ -1,7 +1,8 @@
 # Titanic - 机器学习生存预测项目
 
 > 二分类任务 · [Kaggle竞赛页面](https://www.kaggle.com/competitions/titanic)
-> **Public Score: 0.77511 · Rank: / 12,867**
+> 
+> 公榜得分: 0.77511 · 比赛排名: / 12,867
 
 ---
 
